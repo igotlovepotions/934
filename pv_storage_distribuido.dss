@@ -1,6 +1,8 @@
-!Redirect      IEEELineCodes.DSS
-Redirect       ieee37.dss
-Redirect       pvsystem.dss
+Clear
+Set DefaultBaseFrequency=60
+
+Redirect ieee37.dss
+Redirect pvsystem.dss
 
 !Solve Loadmult=1
 Set Loadmult=1

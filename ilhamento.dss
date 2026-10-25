@@ -1,6 +1,8 @@
-Redirect        ieee37.dss
-!Redirect       IEEELineCodes.DSS
-Redirect       pvsystem.dss
+Clear
+Set DefaultBaseFrequency=60
+
+Redirect ieee37.dss
+Redirect pvsystem.dss
 
 !Solve Loadmult=0.5
 Set Loadmult=1
@@ -15,7 +17,6 @@ New Storage.Storage_A3_nuevo phases=3 bus1=BESS_BUS kv=0.38 pf=1 kWrated=150 %re
 
 new monitor.storage_ilhamento_potencia element=Line.L1 terminal=1 mode=1
 new monitor.storage_ilhamento_VI element=Line.L1 terminal=1 mode=0
-new monitor.storage_ilhamento_variables element=Line.L1 terminal=1 mode=3
 
 new monitor.line_ilhamento_potencia element=Line.L1 terminal=1 mode=1
 new monitor.line_ilhamento_VI element=Line.L1 terminal=1 mode=0

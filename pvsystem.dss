@@ -1,18 +1,21 @@
-! pvsystem.dss  8 PVs em 8 das 37 barras (21,6%)
+
+
 New XYcurve.PvsT  npts=4 xarray=[0 25 75 100] yarray=[1.2 1 .8 .6]
 New XYcurve.Effic npts=4 xarray=[.1 .2 .4 1] yarray=[0.86 .9 .93 .97]
 New Loadshape.Irrad npts=24 interval=1 mult=[0 0 0 0 0 0 .1 .2 .3 .5 .8 .9 1.0 1.0 .99 .9 .7 .4 .1 0 0 0 0 0]
 New Tshape.Temp npts=24 interval=1 temp=[25 25 25 25 25 25 25 25 35 40 45 50 60 60 55 40 35 30 25 25 25 25 25 25]
 
-! PV_1 define tudo e os outros copiam dele, assim pmpp e kva mudam num lugar so
-New PVSystem.PV_1 phases=3 bus1=728.1.2.3 kv=4.8 irrad=.98 pmpp=310 kva=350 temperature=25 pf=1 %cutin=0.1 %cutout=0.1 effcurve=Effic P-tcurve=PvsT Daily=Irrad Tdaily=Temp
-New PVSystem.PV_2 like=PV_1 bus1=733.1.2.3
-New PVSystem.PV_3 like=PV_1 bus1=737.1.2.3
-New PVSystem.PV_4 like=PV_1 bus1=740.1.2.3
-New PVSystem.PV_5 like=PV_1 bus1=718.1.2.3
-New PVSystem.PV_6 like=PV_1 bus1=720.1.2.3
-New PVSystem.PV_7 like=PV_1 bus1=722.1.2.3
-New PVSystem.PV_8 like=PV_1 bus1=742.1.2.3
+
+New PVSystem.PV_1 phases=3 bus1=728.1.2.3 kv=4.8 conn=delta irrad=.98 pmpp=310 kva=350 temperature=25 pf=1 %cutin=0.1 %cutout=0.1 effcurve=Effic P-tcurve=PvsT Daily=Irrad Tdaily=Temp
+New PVSystem.PV_2 phases=3 bus1=733.1.2.3 kv=4.8 conn=delta irrad=.98 pmpp=310 kva=350 temperature=25 pf=1 %cutin=0.1 %cutout=0.1 effcurve=Effic P-tcurve=PvsT Daily=Irrad Tdaily=Temp
+New PVSystem.PV_3 phases=3 bus1=737.1.2.3 kv=4.8 conn=delta irrad=.98 pmpp=310 kva=350 temperature=25 pf=1 %cutin=0.1 %cutout=0.1 effcurve=Effic P-tcurve=PvsT Daily=Irrad Tdaily=Temp
+New PVSystem.PV_4 phases=3 bus1=740.1.2.3 kv=4.8 conn=delta irrad=.98 pmpp=310 kva=350 temperature=25 pf=1 %cutin=0.1 %cutout=0.1 effcurve=Effic P-tcurve=PvsT Daily=Irrad Tdaily=Temp
+New PVSystem.PV_5 phases=3 bus1=718.1.2.3 kv=4.8 conn=delta irrad=.98 pmpp=310 kva=350 temperature=25 pf=1 %cutin=0.1 %cutout=0.1 effcurve=Effic P-tcurve=PvsT Daily=Irrad Tdaily=Temp
+New PVSystem.PV_6 phases=3 bus1=720.1.2.3 kv=4.8 conn=delta irrad=.98 pmpp=310 kva=350 temperature=25 pf=1 %cutin=0.1 %cutout=0.1 effcurve=Effic P-tcurve=PvsT Daily=Irrad Tdaily=Temp
+New PVSystem.PV_7 phases=3 bus1=722.1.2.3 kv=4.8 conn=delta irrad=.98 pmpp=310 kva=350 temperature=25 pf=1 %cutin=0.1 %cutout=0.1 effcurve=Effic P-tcurve=PvsT Daily=Irrad Tdaily=Temp
+New PVSystem.PV_8 phases=3 bus1=742.1.2.3 kv=4.8 conn=delta irrad=.98 pmpp=310 kva=350 temperature=25 pf=1 %cutin=0.1 %cutout=0.1 effcurve=Effic P-tcurve=PvsT Daily=Irrad Tdaily=Temp
+
+
 
 New Monitor.pv1_potencia element=PVSystem.PV_1 terminal=1 mode=1
 New Monitor.pv2_potencia element=PVSystem.PV_2 terminal=1 mode=1
@@ -22,3 +25,13 @@ New Monitor.pv5_potencia element=PVSystem.PV_5 terminal=1 mode=1
 New Monitor.pv6_potencia element=PVSystem.PV_6 terminal=1 mode=1
 New Monitor.pv7_potencia element=PVSystem.PV_7 terminal=1 mode=1
 New Monitor.pv8_potencia element=PVSystem.PV_8 terminal=1 mode=1
+
+
+export monitor pv1_potencia
+export monitor pv2_potencia
+export monitor pv3_potencia
+export monitor pv4_potencia
+export monitor pv5_potencia
+export monitor pv6_potencia
+export monitor pv7_potencia
+export monitor pv8_potencia
