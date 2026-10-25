@@ -1,0 +1,38 @@
+Clear
+Set DefaultBaseFrequency=60
+Set DataPath=C:\Users\amy\projects\opendss\trab
+
+Redirect ieee37.dss
+BusCoords IEEE37_BusXY.csv
+Redirect pvsystem.dss
+
+!Solve Loadmult=0.5
+Set Loadmult=1
+
+Set VoltageBases = "230,4.8,0.48"
+CalcVoltageBases
+
+New LoadShape
+New XYCurve
+
+New Storage 
+new monitor
+
+Set DataPath=C:\Users\amy\projects\opendss\trab\resultados\cenario
+
+set mode=daily
+set number=24
+Set Stepsize=1h
+
+set DemandInterval=true
+set overloadreport=true
+set voltexceptionreport=true
+set DIVerbose=true
+solve
+closeDI
+
+Export Voltages voltages.csv
+Export Overloads overloads.csv
+
+Export monitors all
+

@@ -1,6 +1,6 @@
 Clear
 Set DefaultBaseFrequency=60
-
+Set DataPath=C:\Users\amy\projects\opendss\trab
 Redirect ieee37.dss
 Redirect pvsystem.dss
 
@@ -14,25 +14,24 @@ BusCoords IEEE37_BusXY.csv
 
 new monitor.line_pv_loadmult_potencia element=Line.L1 terminal=1 mode=1
 new monitor.line_pv_loadmult_VI element=Line.L1 terminal=1 mode=0
-new monitor.line_pv_loadmult_variables element=Line.L1 terminal=1 mode=3
+!new monitor.line_pv_loadmult_variables element=Line.L1 terminal=1 mode=3
 
+Set DataPath=C:\Users\amy\projects\opendss\trab\resultados\pv_loadmult
 
 
 set mode=daily
 set number=24
 Set Stepsize=1h
 
-set DemandInterval=true
-set overloadreport=true
-set voltexceptionreport=true
-set DIVerbose=true
+!set DemandInterval=true
+!set overloadreport=true
+!set voltexceptionreport=true
+!set DIVerbose=true
 solve
-closeDI
+!closeDI
 
 
 Export Voltages pv_loadmult_voltages.csv
 Export Overloads pv_loadmult_overloads.csv
-
-Export monitor monitor_pv_loadmult_L1_potencia
-Export monitor monitor_pv_loadmult_L1_VI
+export monitors all
 

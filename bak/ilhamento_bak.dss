@@ -1,0 +1,60 @@
+Clear
+Set DefaultBaseFrequency=60
+Set DataPath=C:\Users\amy\projects\opendss\trab
+
+
+Redirect ieee37.dss
+Redirect pvsystem.dss
+
+!Solve Loadmult=0.5
+Set Loadmult=1
+
+Set VoltageBases = "230,4.8,0.48"
+CalcVoltageBases
+BusCoords IEEE37_BusXY.csv
+
+New LoadShape.dispatch_shape interval=1 npts=24 mult=(file=curva_bess.txt)
+New XYCurve.Eff npts=4 xarray=[.1        .2        .4        1.0]  yarray=[.86        .9        .93        .97]
+New Storage.Storage phases=3 bus1=BESS_BUS kv=0.38 pf=1 kWrated=150 %reserve=20  // kv anterior kv=13.8 effcurve=Eff kWhrated=314 %stored=20 state=idling conn=delta dispmode=follow model=1 daily=dispatch_shape
+
+new monitor.line_ilhamento_potencia element=Line.L1 terminal=1 mode=1
+new monitor.line_ilhamento_VI element=Line.L1 terminal=1 mode=0
+
+new monitor.sto_ilhamento_potencia element=storage.storage terminal=1 mode=1
+new monitor.sto_ilhamento_vi element=storage.storage terminal=1 mode=0
+new monitor.sto_ilhamento_variables element=storage.storage terminal=1 mode=3
+
+
+
+
+
+!new monitor.line_ilhamento_potencia element=Line.L1 terminal=1 mode=1
+!new monitor.line_ilhamento_VI element=Line.L1 terminal=1 mode=0
+!new monitor.line_ilhamento_variables element=Line.L1 terminal=1 mode=3
+
+!new monitor.pvsystem_ilhamento_potencia element=Line.L1 terminal=1 mode=1
+!new monitor.pvsystem_ilhamento_VI element=Line.L1 terminal=1 mode=0
+!new monitor.pvsystem_ilhamento_variables element=Line.L1 terminal=1 mode=3
+Set DataPath=C:\Users\amy\projects\opendss\trabresultados\ilhamento
+
+set mode=daily
+set number=24
+Set Stepsize=1h
+
+set DemandInterval=true
+set overloadreport=true
+set voltexceptionreport=true
+set DIVerbose=true
+solve
+closeDI
+
+Export Voltages resultados\ilhamento\voltages.csv
+Export Overloads resultados\ilhamento\overloads.csv
+
+
+
+Export monitor line_ilhamento_potencia file=resultados\ilhamento\line_pot.csv
+Export monitor line_ilhamento_VI file=resultados\ilhamento\line_vi.csv
+Export monitor sto_ilhamento_potencia file=resultados\ilhamento\sto_pot.csv
+Export monitor sto_ilhamento_vi file=resultados\ilhamento\sto_vi.csv
+Export monitor sto_ilhamento_variables file=resultados\ilhamento\sto_vars.csv

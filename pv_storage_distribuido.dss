@@ -1,5 +1,7 @@
 Clear
 Set DefaultBaseFrequency=60
+Set DataPath=C:\Users\amy\projects\opendss\trab
+
 
 Redirect ieee37.dss
 Redirect pvsystem.dss
@@ -23,6 +25,7 @@ new monitor.line_stodist_potencia element=Line.L1 terminal=1 mode=1
 new monitor.line_stodist_VI element=Line.L1 terminal=1 mode=0
 new monitor.line_stodist_variables element=Line.L1 terminal=1 mode=3
 
+Set DataPath=C:\Users\amy\projects\opendss\trab\resultados\pv_storage_distribuido
 
 set mode=daily
 set number=24
@@ -37,8 +40,9 @@ closeDI
 
 Export Voltages pv_storage_distribuido_voltages.csv
 Export Overloads pv_storage_distribuido_overloads.csv
-
-Export monitor monitor_stodist_potencia
-Export monitor monitor_stodist_VI
+export monitors all
+Export monitor storage_stodist_potencia
+Export monitor storage_stodist_VI
+Export monitor storage_stodist_variables
 
 

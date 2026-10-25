@@ -1,0 +1,49 @@
+Clear
+Set DefaultBaseFrequency=60
+
+Redirect ieee37.dss
+Redirect pvsystem.dss
+
+Set Loadmult=1
+Set VoltageBases = "230,4.8,0.48"
+CalcVoltageBases
+BusCoords IEEE37_BusXY.csv
+
+Set DataPath=resultados\nopv_loadmult
+
+Set VoltageBases = "230,4.8,0.48"
+CalcVoltageBases
+BusCoords IEEE37_BusXY.csv
+
+new monitor.line_pv_peak_L1_potencia element=Line.L1 terminal=1 mode=1
+new monitor.line_pv_peak_L1_VI element=Line.L1 terminal=1 mode=0
+
+!set mode=daily
+!set number=24
+!Set Stepsize=1h
+
+
+set mode=snap
+!solve
+
+solve
+Sample
+closeDI
+
+Export monitor pv1_potencia
+
+!set DemandInterval=true
+!set overloadreport=true
+!set voltexceptionreport=true
+!set DIVerbose=true
+!solve
+!closeDI
+
+!Export Voltages pv_peak_voltages.csv
+!Export Overloads pv_peak_overloads.csv
+
+!Export monitor line_pv_peak_L1_potencia
+!Export monitor line_pv_peak_L1_VI
+Export Voltages resultados\nopv_loadmult\voltages.csv
+Export Overloads resultados\nopv_loadmult\overloads.csv
+Export monitor line_nopv_loadmult_L1_potencia resultados\nopv_loadmult\L1_potencia.csv

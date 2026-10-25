@@ -26,6 +26,24 @@ New Monitor.pv6_potencia element=PVSystem.PV_6 terminal=1 mode=1
 New Monitor.pv7_potencia element=PVSystem.PV_7 terminal=1 mode=1
 New Monitor.pv8_potencia element=PVSystem.PV_8 terminal=1 mode=1
 
+New Monitor.pv1_variables element=PVSystem.PV_1 terminal=1 mode=3
+New Monitor.pv2_variables element=PVSystem.PV_2 terminal=1 mode=3
+New Monitor.pv3_variables element=PVSystem.PV_3 terminal=1 mode=3
+New Monitor.pv4_variables element=PVSystem.PV_4 terminal=1 mode=3
+New Monitor.pv5_variables element=PVSystem.PV_5 terminal=1 mode=3
+New Monitor.pv6_variables element=PVSystem.PV_6 terminal=1 mode=3
+New Monitor.pv7_variables element=PVSystem.PV_7 terminal=1 mode=3
+New Monitor.pv8_variables element=PVSystem.PV_8 terminal=1 mode=3
+
+export monitor pv1_variables
+export monitor pv2_variables
+export monitor pv3_variables
+export monitor pv4_variables
+export monitor pv5_variables
+export monitor pv6_variables
+export monitor pv7_variables
+export monitor pv8_variables
+
 
 export monitor pv1_potencia
 export monitor pv2_potencia

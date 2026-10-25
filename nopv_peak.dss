@@ -1,5 +1,7 @@
 Clear
 Set DefaultBaseFrequency=60
+Set DataPath=C:\Users\amy\projects\opendss\trab
+
 
 Redirect ieee37.dss
 !Redirect pvsystem.dss
@@ -13,20 +15,22 @@ BusCoords IEEE37_BusXY.csv
 
 new monitor.nopv_peak_L1_potencia element=Line.L1 terminal=1 mode=1
 new monitor.nopv_peak_L1_VI element=Line.L1 terminal=1 mode=0
+Set DataPath=C:\Users\amy\projects\opendss\trab\resultados\nopv_peak
 
 set mode=daily
 set number=24
 Set Stepsize=1h
 
-set DemandInterval=true
-set overloadreport=true
-set voltexceptionreport=true
-set DIVerbose=true
+!set DemandInterval=true
+!set overloadreport=true
+!set voltexceptionreport=true
+!set DIVerbose=true
 solve
-closeDI
+!closeDI
 
 Export Voltages nopv_peak_voltages.csv
 Export Overloads nopv_peak_overloads.csv
 
-Export monitor nopv_peak_L1_potencia
-Export monitor nopv_peak_L1_VI
+Export monitors all
+!Export monitor nopv_peak_L1_potencia
+!Export monitor nopv_peak_L1_VI
