@@ -1,0 +1,52 @@
+!ta dimensionada pra pico das cargas 
+
+New XYcurve.PvsT npts=4 xarray=[0 25 75 100] yarray=[1.2 1 .8 .6]
+New XYcurve.Effic npts=4 xarray=[.1 .2 .4 1] yarray=[0.86 .9 .93 .97]
+
+New loadshape.Irrad npts=24 interval=1 mult=[0 0 0 0 0 0 .1 .2 .3 .5 .8 .9 1.0 1.0 .99 .9 .7 .4 .1 0 0 0 0 0]
+New Tshape.Temp npts=24 interval=1 temp=[25 25 25 25 25 25 25 25 35 40 45 50 60 60 55 40 35 30 25 25 25 25 25 25]
+
+New loadshape.daily npts=24 interval=1 mult=[ 0 0 0 0 0 0 0.1468 0.4116 0.6432 0.7749 0.8429 0.8778 0.8708 0.8374 0.7407 0.5499 0.302 0.0759 0 0 0 0 0
+
+New PVSystem.PV_1 phases=3 bus1=742.1.2.3 kv=0.48  irrad=.98 pmpp=100 kva=70 temperature=25 pf=1 %cutin=0.1 %cutout=0.1 effcurve=Effic P-tcurve=PvsT Daily=daily Tdaily=Temp
+New PVSystem.PV_2 phases=3 bus1=725.1.2.3 kv=0.48  irrad=.98 pmpp=100 kva=70 temperature=25 pf=1 %cutin=0.1 %cutout=0.1 effcurve=Effic P-tcurve=PvsT Daily=daily Tdaily=Temp
+New PVSystem.PV_3 phases=3 bus1=722.1.2.3 kv=0.48  irrad=.98 pmpp=100 kva=70 temperature=25 pf=1 %cutin=0.1 %cutout=0.1 effcurve=Effic P-tcurve=PvsT Daily=daily Tdaily=Temp
+New PVSystem.PV_4 phases=3 bus1=741.1.2.3 kv=0.48  irrad=.98 pmpp=100 kva=70 temperature=25 pf=1 %cutin=0.1 %cutout=0.1 effcurve=Effic P-tcurve=PvsT Daily=daily Tdaily=Temp
+New PVSystem.PV_5 phases=3 bus1=735.1.2.3 kv=0.48  irrad=.98 pmpp=100 kva=70 temperature=25 pf=1 %cutin=0.1 %cutout=0.1 effcurve=Effic P-tcurve=PvsT Daily=daily Tdaily=Temp
+New PVSystem.PV_6 phases=3 bus1=729.1.2.3 kv=0.48  irrad=.98 pmpp=100 kva=70 temperature=25 pf=1 %cutin=0.1 %cutout=0.1 effcurve=Effic P-tcurve=PvsT Daily=daily Tdaily=Temp
+New PVSystem.PV_7 phases=3 bus1=736.1.2.3 kv=0.48  irrad=.98 pmpp=100 kva=70 temperature=25 pf=1 %cutin=0.1 %cutout=0.1 effcurve=Effic P-tcurve=PvsT Daily=daily Tdaily=Temp
+New PVSystem.PV_8 phases=3 bus1=718.1.2.3 kv=0.48  irrad=.98 pmpp=100 kva=70 temperature=25 pf=1 %cutin=0.1 %cutout=0.1 effcurve=Effic P-tcurve=PvsT Daily=daily Tdaily=Temp
+
+
+new monitor.pvsystem_pv_loadmult_potencia element=pvsystem.pv_1terminal=1 mode=1
+new monitor.pvsystem_pv_loadmult_VI element=pvsystem.pv_1 terminal=1 mode=0
+new monitor.pvsystem_pv_loadmult_variables element=pvsystem.pv_1 terminal=1 mode=3
+
+new monitor.pvsystem_pv_loadmult_potencia element=pvsystem.pv_2terminal=1 mode=1
+new monitor.pvsystem_pv_loadmult_VI element=pvsystem.pv_2 terminal=1 mode=0
+new monitor.pvsystem_pv_loadmult_variables element=pvsystem.pv_2 terminal=1 mode=3
+
+new monitor.pvsystem_pv_loadmult_potencia element=pvsystem.pv_3terminal=1 mode=1
+new monitor.pvsystem_pv_loadmult_VI element=pvsystem.pv_3 terminal=1 mode=0
+new monitor.pvsystem_pv_loadmult_variables element=pvsystem.pv_3 terminal=1 mode=3
+
+new monitor.pvsystem_pv_loadmult_potencia element=pvsystem.pv_4terminal=1 mode=1
+new monitor.pvsystem_pv_loadmult_VI element=pvsystem.pv_4 terminal=1 mode=0
+new monitor.pvsystem_pv_loadmult_variables element=pvsystem.pv_4 terminal=1 mode=3
+
+new monitor.pvsystem_pv_loadmult_potencia element=pvsystem.pv_5 terminal=1 mode=1
+new monitor.pvsystem_pv_loadmult_VI element=pvsystem.pv_5 terminal=1 mode=0
+new monitor.pvsystem_pv_loadmult_variables element=pvsystem.pv_5 terminal=1 mode=3
+
+new monitor.pvsystem_pv_loadmult_potencia element=pvsystem.pv_6terminal=1 mode=1
+new monitor.pvsystem_pv_loadmult_VI element=pvsystem.pv_6 terminal=1 mode=0
+new monitor.pvsystem_pv_loadmult_variables element=pvsystem.pv_6 terminal=1 mode=3
+
+new monitor.pvsystem_pv_loadmult_potencia element=pvsystem.pv_7terminal=1 mode=1
+new monitor.pvsystem_pv_loadmult_VI element=pvsystem.pv_7 terminal=1 mode=0
+new monitor.pvsystem_pv_loadmult_variables element=pvsystem.pv_7 terminal=1 mode=3
+
+new monitor.pvsystem_pv_loadmult_potencia element=pvsystem.pv_8terminal=1 mode=1
+new monitor.pvsystem_pv_loadmult_VI element=pvsystem.pv_8 terminal=1 mode=0
+new monitor.pvsystem_pv_loadmult_variables element=pvsystem.pv_8 terminal=1 mode=3
+

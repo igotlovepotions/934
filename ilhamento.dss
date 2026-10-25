@@ -1,5 +1,6 @@
 Redirect        ieee37.dss
-!Redirect        IEEELineCodes.DSS
+!Redirect       IEEELineCodes.DSS
+Redirect       pvsystem.dss
 
 !Solve Loadmult=0.5
 Set Loadmult=1
@@ -8,32 +9,21 @@ Set VoltageBases = "230,4.8,0.48"
 CalcVoltageBases
 BusCoords IEEE37_BusXY.csv
 
-New XYcurve.PvsT npts=4 xarray=[0 25 75 100] yarray=[1.2 1 .8 .6]
-New XYcurve.Effic npts=4 xarray=[.1 .2 .4 1] yarray=[0.86 .9 .93 .97]
-
-New loadshape.Irrad npts=24 interval=1 mult=[0 0 0 0 0 0 .1 .2 .3 .5 .8 .9 1.0 1.0 .99 .9 .7 .4 .1 0 0 0 0 0]
-New Tshape.Temp npts=24 interval=1 temp=[25 25 25 25 25 25 25 25 35 40 45 50 60 60 55 40 35 30 25 25 25 25 25 25]
-New loadshape.daily npts=24 interval=1 mult=[ 0 0 0 0 0 0 0.1468 0.4116 0.6432 0.7749 0.8429 0.8778 0.8708 0.8374 0.7407 0.5499 0.302 0.0759 0 0 0 0 0
-
-New PVSystem.PV_1 phases=3 bus1=742.1.2.3 kv=0.22  irrad=.98 pmpp=100 kva=70 temperature=25 pf=1 %cutin=0.1 %cutout=0.1 effcurve=Effic P-tcurve=PvsT Daily=LS02 Tdaily=Temp
-New PVSystem.PV_2 phases=3 bus1=725.1.2.3 kv=0.22  irrad=.98 pmpp=100 kva=70 temperature=25 pf=1 %cutin=0.1 %cutout=0.1 effcurve=Effic P-tcurve=PvsT Daily=LS02 Tdaily=Temp
-New PVSystem.PV_3 phases=3 bus1=722.1.2.3 kv=0.22  irrad=.98 pmpp=100 kva=70 temperature=25 pf=1 %cutin=0.1 %cutout=0.1 effcurve=Effic P-tcurve=PvsT Daily=LS02 Tdaily=Temp
-New PVSystem.PV_4 phases=3 bus1=741.1.2.3 kv=0.22  irrad=.98 pmpp=100 kva=70 temperature=25 pf=1 %cutin=0.1 %cutout=0.1 effcurve=Effic P-tcurve=PvsT Daily=LS02 Tdaily=Temp
-New PVSystem.PV_5 phases=3 bus1=735.1.2.3 kv=0.22  irrad=.98 pmpp=100 kva=70 temperature=25 pf=1 %cutin=0.1 %cutout=0.1 effcurve=Effic P-tcurve=PvsT Daily=LS02 Tdaily=Temp
-New PVSystem.PV_6 phases=3 bus1=729.1.2.3 kv=0.22  irrad=.98 pmpp=100 kva=70 temperature=25 pf=1 %cutin=0.1 %cutout=0.1 effcurve=Effic P-tcurve=PvsT Daily=LS02 Tdaily=Temp
-New PVSystem.PV_7 phases=3 bus1=736.1.2.3 kv=0.22  irrad=.98 pmpp=100 kva=70 temperature=25 pf=1 %cutin=0.1 %cutout=0.1 effcurve=Effic P-tcurve=PvsT Daily=LS02 Tdaily=Temp
-New PVSystem.PV_8 phases=3 bus1=718.1.2.3 kv=0.22  irrad=.98 pmpp=100 kva=70 temperature=25 pf=1 %cutin=0.1 %cutout=0.1 effcurve=Effic P-tcurve=PvsT Daily=LS02 Tdaily=Temp
-
-
 New LoadShape.dispatch_shape interval=1 npts=24 mult=(file=curva_bess.txt)
 New XYCurve.Eff npts=4 xarray=[.1        .2        .4        1.0]  yarray=[.86        .9        .93        .97]
 New Storage.Storage_A3_nuevo phases=3 bus1=BESS_BUS kv=0.38 pf=1 kWrated=150 %reserve=20  // kv anterior kv=13.8 effcurve=Eff kWhrated=314 %stored=20 state=idling conn=delta dispmode=follow model=1 daily=dispatch_shape
 
-new monitor.monitor_pv_peak_L1_potencia element=Line.L1 terminal=1 mode=1
-new monitor.monitor_pv_peak_L1_VI element=Line.L1 terminal=1 mode=0
+new monitor.storage_ilhamento_potencia element=Line.L1 terminal=1 mode=1
+new monitor.storage_ilhamento_VI element=Line.L1 terminal=1 mode=0
+new monitor.storage_ilhamento_variables element=Line.L1 terminal=1 mode=3
 
-new monitor.storage _pv_peak_L1_potencia element=Line.L1 terminal=1 mode=1
-new monitor.storage _pv_peak_L1_VI element=Line.L1 terminal=1 mode=0
+new monitor.line_ilhamento_potencia element=Line.L1 terminal=1 mode=1
+new monitor.line_ilhamento_VI element=Line.L1 terminal=1 mode=0
+new monitor.line_ilhamento_variables element=Line.L1 terminal=1 mode=3
+
+new monitor.pvsystem_ilhamento_potencia element=Line.L1 terminal=1 mode=1
+new monitor.pvsystem_ilhamento_VI element=Line.L1 terminal=1 mode=0
+new monitor.pvsystem_ilhamento_variables element=Line.L1 terminal=1 mode=3
 
 set mode=daily
 set number=24
@@ -49,7 +39,7 @@ closeDI
 Export Voltages pv_peak_voltages.csv
 Export Overloads pv_peak_overloads.csv
 
-Export monitor monitor_pv_peak_L1_potencia
-Export monitor monitor_pv_peak_L1_VI
+Export monitor monitor_ilhamento_potencia
+Export monitor monitor_ilhamento_VI
 
 
