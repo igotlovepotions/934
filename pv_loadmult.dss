@@ -8,12 +8,22 @@ Set VoltageBases = "230,4.8,0.48"
 CalcVoltageBases
 BusCoords IEEE37_BusXY.csv
 
-New LoadShape.LS02 Npts=24 Interval=1 mult=(file=curva_geracao_mod_24h_microgrid.csv)
 New XYcurve.PvsT npts=4 xarray=[0 25 75 100] yarray=[1.2 1 .8 .6]
+
 New XYcurve.Effic npts=4 xarray=[.1 .2 .4 1] yarray=[0.86 .9 .93 .97]
+
 New loadshape.Irrad npts=24 interval=1 mult=[0 0 0 0 0 0 .1 .2 .3 .5 .8 .9 1.0 1.0 .99 .9 .7 .4 .1 0 0 0 0 0]
+
 New Tshape.Temp npts=24 interval=1temp=[25 25 25 25 25 25 25 25 35 40 45 50 60 60 55 40 35 30 25 25 25 25 25 25]
-New PVSystem.PV_A1 phases=3 bus1=G04_PV kv=0.22  irrad=.98 pmpp=100 kva=70 temperature=25 pf=1 %cutin=0.1 %cutout=0.1 effcurve=Effic P-tcurve=PvsT Daily=LS02 Tdaily=Temp
+
+New PVSystem.PV_1 phases=3 bus1=742.1.2.3 kv=0.22  irrad=.98 pmpp=100 kva=70 temperature=25 pf=1 %cutin=0.1 %cutout=0.1 effcurve=Effic P-tcurve=PvsT Daily=LS02 Tdaily=Temp
+New PVSystem.PV_2 phases=3 bus1=725.1.2.3 kv=0.22  irrad=.98 pmpp=100 kva=70 temperature=25 pf=1 %cutin=0.1 %cutout=0.1 effcurve=Effic P-tcurve=PvsT Daily=LS02 Tdaily=Temp
+New PVSystem.PV_3 phases=3 bus1=722.1.2.3 kv=0.22  irrad=.98 pmpp=100 kva=70 temperature=25 pf=1 %cutin=0.1 %cutout=0.1 effcurve=Effic P-tcurve=PvsT Daily=LS02 Tdaily=Temp
+New PVSystem.PV_4 phases=3 bus1=741.1.2.3 kv=0.22  irrad=.98 pmpp=100 kva=70 temperature=25 pf=1 %cutin=0.1 %cutout=0.1 effcurve=Effic P-tcurve=PvsT Daily=LS02 Tdaily=Temp
+New PVSystem.PV_5 phases=3 bus1=735.1.2.3 kv=0.22  irrad=.98 pmpp=100 kva=70 temperature=25 pf=1 %cutin=0.1 %cutout=0.1 effcurve=Effic P-tcurve=PvsT Daily=LS02 Tdaily=Temp
+New PVSystem.PV_6 phases=3 bus1=729.1.2.3 kv=0.22  irrad=.98 pmpp=100 kva=70 temperature=25 pf=1 %cutin=0.1 %cutout=0.1 effcurve=Effic P-tcurve=PvsT Daily=LS02 Tdaily=Temp
+New PVSystem.PV_7 phases=3 bus1=736.1.2.3 kv=0.22  irrad=.98 pmpp=100 kva=70 temperature=25 pf=1 %cutin=0.1 %cutout=0.1 effcurve=Effic P-tcurve=PvsT Daily=LS02 Tdaily=Temp
+New PVSystem.PV_8 phases=3 bus1=718.1.2.3 kv=0.22  irrad=.98 pmpp=100 kva=70 temperature=25 pf=1 %cutin=0.1 %cutout=0.1 effcurve=Effic P-tcurve=PvsT Daily=LS02 Tdaily=Temp
 
 new monitor.monitor_pv_loadmult_L1_potencia element=Line.L1 terminal=1 mode=1
 new monitor.monitor_pv_loadmult_L1_VI element=Line.L1 terminal=1 mode=0

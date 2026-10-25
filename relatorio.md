@@ -1,4 +1,14 @@
 37 bus entao 20% eh 7.4 entao 8 buses pra colocar pv (pelo menos 20%)
+pv1 742.1.2.3
+pv2 725.1.2.3
+pv3 722.1.2.3
+pv4 741.1.2.3
+pv5 735.1.2.3
+pv6 729.1.2.3
+pv7 736.1.2.3
+pv8 718.1.2.3
+
+ escolhenod elas 
 pv total dimensionado pra demanda de pico
 
 caso 1 sem pv sem storage loadmult 1
