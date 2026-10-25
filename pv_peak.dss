@@ -1,0 +1,36 @@
+Redirect        ieee37.dss
+!Redirect        IEEELineCodes.DSS
+
+!Solve Loadmult=0.5
+Set Loadmult=1
+
+Set VoltageBases = "230,4.8,0.48"
+CalcVoltageBases
+BusCoords IEEE37_BusXY.csv
+
+New XYcurve.PvsT npts=4 xarray=[0 25 75 100] yarray=[1.2 1 .8 .6]
+New XYcurve.Effic npts=4 xarray=[.1 .2 .4 1] yarray=[0.86 .9 .93 .97]
+New loadshape.Irrad npts=24 interval=1 mult=[0 0 0 0 0 0 .1 .2 .3 .5 .8 .9 1.0 1.0 .99 .9 .7 .4 .1 0 0 0 0 0]
+New Tshape.Temp npts=24 interval=1temp=[25 25 25 25 25 25 25 25 35 40 45 50 60 60 55 40 35 30 25 25 25 25 25 25]
+New PVSystem.PV_A1 phases=3 bus1=G04_PV kv=0.22  irrad=.98 pmpp=100 kva=70 temperature=25 pf=1 %cutin=0.1 %cutout=0.1 effcurve=Effic P-tcurve=PvsT Daily=LS02 Tdaily=Temp
+
+new monitor.monitor_pv_peak_L1_potencia element=Line.L1 terminal=1 mode=1
+new monitor.monitor_pv_peak_L1_VI element=Line.L1 terminal=1 mode=0
+
+set mode=daily
+set number=24
+Set Stepsize=1h
+
+set DemandInterval=true
+set overloadreport=true
+set voltexceptionreport=true
+set DIVerbose=true
+solve
+closeDI
+
+Export Voltages pv_peak_voltages.csv
+Export Overloads pv_peak_overloads.csv
+
+Export monitor monitor_pv_peak_L1_potencia
+Export monitor monitor_pv_peak_L1_VI
+

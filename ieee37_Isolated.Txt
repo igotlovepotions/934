@@ -1,0 +1,93 @@
+
+ISOLATED CIRCUIT ELEMENT REPORT
+
+
+***  THE FOLLOWING BUSES HAVE NO CONNECTION TO THE SOURCE ***
+
+"monitornopv_loadmult_1"
+
+***********  THE FOLLOWING SUB NETWORKS ARE ISOLATED ************
+
+
+***********  THE FOLLOWING ENABLED ELEMENTS ARE ISOLATED ************
+
+
+***  THE FOLLOWING BUSES ARE NOT CONNECTED TO ANY POWER DELIVERY ELEMENT ***
+
+"monitornopv_loadmult_1"
+
+***********  CONNECTED CIRCUIT ELEMENT TREE ************
+
+(Lexical Level) Element name
+
+(0) Vsource.source
+(1) Transformer.subxf
+(2) Line.jumper
+(3) Line.l35
+[SHUNT], Load.s701a
+[SHUNT], Load.s701b
+[SHUNT], Load.s701c
+(4) Line.l1
+(5) Line.l4
+(6) Line.l6
+[SHUNT], Load.s730c
+(7) Line.l27
+(8) Line.l17
+(9) Line.l15
+[SHUNT], Load.s732c
+(9) Line.l14
+[SHUNT], Load.s733a
+(10) Line.l28
+[SHUNT], Load.s734c
+(11) Line.l30
+(12) Line.l19
+[SHUNT], Load.s736b
+(12) Line.l18
+[SHUNT], Load.s735c
+(11) Line.l29
+[SHUNT], Load.s737a
+(12) Line.l31
+[SHUNT], Load.s738a
+(13) Line.l32
+(14) Line.l21
+[SHUNT], Load.s740c
+(14) Line.l20
+[SHUNT], Load.s741c
+(8) Line.l16
+[SHUNT], Load.s731b
+(8) Transformer.xfm1
+(6) Line.l5
+[SHUNT], Load.s727c
+(7) Line.l26
+[SHUNT], Load.s744a
+(8) Line.l34
+[SHUNT], Load.s729a
+(8) Line.l33
+[SHUNT], Load.s728
+(5) Line.l3
+[SHUNT], Load.s713c
+(6) Line.l22
+(7) Line.l8
+[SHUNT], Load.s720c
+(8) Line.l25
+(9) Line.l11
+[SHUNT], Load.s725b
+(8) Line.l24
+(9) Line.l13
+[SHUNT], Load.s722b
+[SHUNT], Load.s722c
+(9) Line.l12
+[SHUNT], Load.s724b
+(7) Line.l7
+[SHUNT], Load.s714a
+[SHUNT], Load.s714b
+(8) Line.l23
+[SHUNT], Load.s718a
+(5) Line.l2
+(6) Line.l10
+[SHUNT], Load.s712c
+(6) Line.l9
+[SHUNT], Load.s742a
+[SHUNT], Load.s742b
+(2) Transformer.reg1c
+(2) Transformer.reg1a

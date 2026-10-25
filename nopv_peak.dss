@@ -1,0 +1,29 @@
+Redirect        ieee37.dss
+!Redirect        IEEELineCodes.DSS
+
+!Solve Loadmult=0.5
+Set Loadmult=1
+
+Set VoltageBases = "230,4.8,0.48"
+CalcVoltageBases
+BusCoords IEEE37_BusXY.csv
+
+new monitor.monitor_nopv_peak_L1_potencia element=Line.L1 terminal=1 mode=1
+new monitor.monitor_nopv_peak_L1_VI element=Line.L1 terminal=1 mode=0
+
+set mode=daily
+set number=24
+Set Stepsize=1h
+
+set DemandInterval=true
+set overloadreport=true
+set voltexceptionreport=true
+set DIVerbose=true
+solve
+closeDI
+
+Export Voltages nopv_peak_voltages.csv
+Export Overloads nopv_peak_overloads.csv
+
+Export monitor monitor_nopv_peak_L1_potencia
+Export monitor monitor_nopv_peak_L1_VI
