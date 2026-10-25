@@ -33,8 +33,8 @@ set DIVerbose=true
 solve
 closeDI
 
-Export Voltages pv_peak_voltages.csv
-Export Overloads pv_peak_overloads.csv
+Export Voltages pv_storage_distribuido_voltages.csv
+Export Overloads pv_storage_distribuido_overloads.csv
 
 Export monitor monitor_stodist_potencia
 Export monitor monitor_stodist_VI
