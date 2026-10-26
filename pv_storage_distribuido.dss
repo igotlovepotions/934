@@ -46,3 +46,21 @@ Export monitor storage_stodist_VI
 Export monitor storage_stodist_variables
 
 
+export monitor pv1_variables
+export monitor pv2_variables
+export monitor pv3_variables
+export monitor pv4_variables
+export monitor pv5_variables
+export monitor pv6_variables
+export monitor pv7_variables
+export monitor pv8_variables
+
+
+export monitor pv1_potencia
+export monitor pv2_potencia
+export monitor pv3_potencia
+export monitor pv4_potencia
+export monitor pv5_potencia
+export monitor pv6_potencia
+export monitor pv7_potencia
+export monitor pv8_potencia

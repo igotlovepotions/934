@@ -22,5 +22,25 @@ Export Voltages voltages.csv
 Export Overloads overloads.csv
 
 export monitors all
-!Export monitor line_pv_peak_L1_potencia
-!Export monitor line_pv_peak_L1_VI
+Export monitor line_pv_peak_L1_potencia
+Export monitor line_pv_peak_L1_VI
+
+
+export monitor pv1_variables
+export monitor pv2_variables
+export monitor pv3_variables
+export monitor pv4_variables
+export monitor pv5_variables
+export monitor pv6_variables
+export monitor pv7_variables
+export monitor pv8_variables
+
+
+export monitor pv1_potencia
+export monitor pv2_potencia
+export monitor pv3_potencia
+export monitor pv4_potencia
+export monitor pv5_potencia
+export monitor pv6_potencia
+export monitor pv7_potencia
+export monitor pv8_potencia
