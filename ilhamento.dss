@@ -7,7 +7,7 @@ BusCoords IEEE37_BusXY.csv
 
 Redirect pvsystem.dss
 
-
+New EnergyMeter.M_ilha element=Line.L17 terminal=2
 !Solve Loadmult=0.5
 Set Loadmult=1
 
@@ -19,6 +19,9 @@ New XYCurve.Eff npts=4 xarray=[.1        .2        .4        1.0]  yarray=[.86  
 
 New Storage.Storage phases=3 bus1=BESS_BUS kv=0.38 pf=1 kWrated=150 %reserve=20  // kv anterior kv=13.8 effcurve=Eff kWhrated=314 %stored=20 state=idling conn=delta dispmode=follow model=1 daily=dispatch_shape
 
+New InvControl.StoCtrl DERList=[Storage.mystorage PVSystem.myPV]
+mode=GFM
+edit storage.mystorage State = Discharging ControlMode = GFM
 Open Line.L17 Term=1
 
 
